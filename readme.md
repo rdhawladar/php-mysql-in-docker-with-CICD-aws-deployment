@@ -23,3 +23,7 @@ $ docker run -it --name macine_name ubuntu
 ```sh
 $ docker inspect CONTAINER_ID
 ```
+# To enter in a container: 
+```sh
+$ docker-compose exec workspace bash
+```

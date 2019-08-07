@@ -1,27 +1,27 @@
-# ./docker-compose.yml
-
-version: '3'
-
+version: '2'
 services:
-  db:
-    image: mysql:5.7
-    container_name: mysql_db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: new_db
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-    ports:
-      - "9906:3306"
-  web:
-    image: php:7.3-apache
-    container_name: php_web
-    depends_on:
-      - db
+  mysql:
+        image: mysql:8.0
+        container_name: mysql-server-80
+        command: --default-authentication-plugin=mysql_native_password
+#        working_dir: /application
+        volumes:
+          - .:/application
+        restart: always
+        environment:
+          - MYSQL_ROOT_PASSWORD=root
+          - MYSQL_DATABASE=my_db
+          - MYSQL_USER=root
+          - MYSQL_PASSWORD=root
+        ports:
+          - "8082:3306"
+  website:
+    container_name: php72
+    build:
+      context: ./
     volumes:
       - ./php/:/var/www/html/
     ports:
-      - "8100:80"
-    stdin_open: true
-    tty: true
+      - 8000:80
+    depends_on:
+      - mysql

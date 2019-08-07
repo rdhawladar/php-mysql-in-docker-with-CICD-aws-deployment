@@ -12,9 +12,10 @@
 <?php
     echo "Hello, World!";
 
-	$servername = "db";
+	$servername = "mysql";
 	$username = "root";
 	$password = "root";
+	$dbname = "my_db";
 
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password);
