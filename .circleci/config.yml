@@ -14,7 +14,7 @@ jobs:
     machine:
       enable: true
     steps:
-      - run: ssh ubuntu@$dev_host "docker run rdhawladar/docker-php-mysql:latest"
+      - run: ssh $DEV_USER@$dev_host "docker run rdhawladar/docker-php-mysql:latest"
 
 workflows:
   version: 2
