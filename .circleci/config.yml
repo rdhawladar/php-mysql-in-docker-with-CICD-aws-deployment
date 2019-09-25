@@ -11,8 +11,7 @@ jobs:
       - run: docker push rdhawladar/docker-php-mysql:latest
 
   deploy:
-    - run: ssh-keyscan "$dev_host" >> -/.ssh/known_hosts
-    - run: ssh ubuntu@"$dev_host" 'docker run rdhawladar/docker-php-mysql:latest'
+    - run: ssh ubuntu@$dev_host "docker run rdhawladar/docker-php-mysql:latest"
 
 workflows:
   version: 2
