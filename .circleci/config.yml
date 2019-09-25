@@ -7,7 +7,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - run: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
-      - run: docker build -t rdhawladar/docker-php-mysql
+      - run: docker build -t rdhawladar/docker-php-mysql .
       - run: docker push rdhawladar/docker-php-mysql:latest
 
 workflows:
