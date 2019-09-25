@@ -10,7 +10,7 @@ jobs:
       - run: docker build -t rdhawladar/docker-php-mysql
       - run: docker push rdhawladar/docker-php-mysql:latest
 
-workflow:
+workflows:
   version: 2
   build-push:
     jobs:
