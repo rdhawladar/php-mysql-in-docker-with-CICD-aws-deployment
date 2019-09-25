@@ -12,9 +12,9 @@ jobs:
 
 workflow:
   version: 2
-  build-push: 
+  build-push:
     jobs:
       - docker_push
-      filters:
-        branches:
-          only: master
+      	  filters:
+            branches:
+              only: master
